@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Convenciones San Luis</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/logo.svg" alt="Centro de Convenciones San Luis">
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#institucional">Institucional</a></li>
+                    <li><a href="#eventos">Eventos</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#tramites">Trámites</a></li>
+                    <li><a href="#contacto" class="btn btn-outline contact-btn">Contacto</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Estático -->
+    <section class="banner static-banner">
+        <div class="banner-static-content">
+            <div class="banner-logo">
+                <i class="fas fa-building"></i>
+            </div>
+            <h1 class="banner-title">Centro de Convenciones San Luis</h1>
+            <div class="banner-decoration"></div>
+            <a href="#tramites" class="btn btn-primary banner-btn">Reservar Ahora</a>
+        </div>
+    </section>
+    
+    <!-- Institutional Section -->
+    <section id="institucional" class="section institutional">
+        <div class="container">
+            <h2 class="section-title">Institucional</h2>
+            
+            <div class="institutional-content">
+                <div class="institutional-text">
+                    <h3>Sobre el Centro de Convenciones</h3>
+                    <p>
+                        El Centro de Convenciones de San Luis es un espacio multipropósito diseñado para la 
+                        realización de eventos culturales, académicos, empresariales y sociales, con una 
+                        infraestructura moderna y funcional.
+                    </p>
+                    <p>
+                        Inaugurado en 2018, nuestro centro cuenta con más de 10.000 m² cubiertos distribuidos 
+                        en diferentes espacios que se adaptan a las necesidades específicas de cada evento.
+                    </p>
+                    
+                    <h3>Misión</h3>
+                    <p>
+                        Posicionar a San Luis como un destino de excelencia para la realización de eventos a 
+                        nivel nacional e internacional, contribuyendo al desarrollo económico, cultural y turístico 
+                        de la provincia.
+                    </p>
+                    
+                    <h3>Visión</h3>
+                    <p>
+                        Ser reconocidos como un referente en la organización y desarrollo de eventos en Argentina, 
+                        destacando por la excelencia en el servicio, la innovación y el compromiso con el desarrollo 
+                        sostenible.
+                    </p>
+                </div>
+                
+                <div class="institutional-image">
+                    <div class="video-container">
+                        <iframe width="560" height="400" src="https://www.youtube.com/embed/haXtL4uhfc0?start=41&autoplay=0&rel=0" 
+                         title="Centro de Convenciones San Luis" frameborder="0" 
+                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                         allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Events Section -->
+    <section id="eventos" class="section events">
+        <div class="container">
+            <h2 class="section-title">Eventos</h2>
+            
+            <div class="events-tabs">
+                <button class="events-tab active" data-target="upcoming-events">Próximos</button>
+                <button class="events-tab" data-target="past-events">Anteriores</button>
+            </div>
+            
+            <div id="upcoming-events" class="events-content active">
+                <div class="events-grid" id="upcoming-events-grid">
+                    <!-- JavaScript insertará los eventos aquí -->
+                </div>
+            </div>
+            
+            <div id="past-events" class="events-content">
+                <div class="events-grid" id="past-events-grid">
+                    <!-- JavaScript insertará los eventos aquí -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section id="galeria" class="section gallery">
+        <div class="container">
+            <h2 class="section-title">Galería</h2>
+            
+            <div class="gallery-carousel">
+                <button class="gallery-btn gallery-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="gallery-carousel-container" id="gallery-container">
+                    <!-- JavaScript insertará las imágenes aquí -->
+                </div>
+                
+                <button class="gallery-btn gallery-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="gallery-nav" id="gallery-nav">
+                <!-- JavaScript insertará los puntos de navegación aquí -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Reservations Section -->
+    <section id="tramites" class="section reservations">
+        <div class="container">
+            <h2 class="section-title">Trámites y Reservas</h2>
+            
+            <div class="reservations-container">
+                <div class="reservations-info">
+                    <h3>Información para Reservas</h3>
+                    <p>
+                        El Centro de Convenciones de San Luis ofrece múltiples espacios para la realización 
+                        de diferentes tipos de eventos:
+                    </p>
+                    
+                    <ul>
+                        <li>Sala Principal con capacidad para 500 personas</li>
+                        <li>Auditorio con 300 butacas</li>
+                        <li>5 Salas de conferencias (capacidad de 50 a 150 personas)</li>
+                        <li>Área de exposiciones de 2.000 m²</li>
+                        <li>Salón VIP para recepciones</li>
+                        <li>Áreas exteriores para eventos al aire libre</li>
+                    </ul>
+                    
+                    <p>
+                        Cada espacio cuenta con equipamiento audiovisual, climatización, internet de alta 
+                        velocidad y posibilidad de servicios de catering, seguridad y asistencia técnica.
+                    </p>
+                    
+                    <h3>Tarifas</h3>
+                    <p>
+                        Las tarifas varían según el espacio, la duración del evento y los servicios adicionales 
+                        requeridos. Para solicitar un presupuesto personalizado, puede completar nuestro formulario 
+                        de contacto o comunicarse directamente con nosotros.
+                    </p>
+                    
+                    <p>
+                        <strong>Nota:</strong> El Centro de Convenciones ofrece tarifas especiales para instituciones 
+                        educativas, organismos gubernamentales y organizaciones sin fines de lucro.
+                    </p>
+                </div>
+                
+                <div class="reservations-process">
+                    <h3>Proceso de Reserva</h3>
+                    
+                    <ul class="process-steps">
+                        <li class="process-step">
+                            <h4 class="step-title">Consulta de Disponibilidad</h4>
+                            <p>
+                                Complete el formulario de contacto especificando el tipo de evento, fecha, 
+                                cantidad de asistentes y requisitos especiales. También puede comunicarse 
+                                telefónicamente al +54 266 4452000.
+                            </p>
+                        </li>
+                        
+                        <li class="process-step">
+                            <h4 class="step-title">Presupuesto</h4>
+                            <p>
+                                Recibirá un presupuesto detallado con los espacios disponibles y servicios 
+                                incluidos dentro de las 48 horas hábiles.
+                            </p>
+                        </li>
+                        
+                        <li class="process-step">
+                            <h4 class="step-title">Confirmación</h4>
+                            <p>
+                                Para confirmar la reserva, deberá abonar un anticipo del 30% del valor total 
+                                y firmar el contrato correspondiente.
+                            </p>
+                        </li>
+                        
+                        <li class="process-step">
+                            <h4 class="step-title">Planificación Final</h4>
+                            <p>
+                                Nuestro equipo coordinará con usted todos los detalles del evento, desde la 
+                                disposición de espacios hasta servicios adicionales, garantizando el éxito 
+                                de su evento.
+                            </p>
+                        </li>
+                    </ul>
+                    
+                    <a href="#contacto" class="btn btn-primary">Solicitar Información</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contacto" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            
+            <div id="flash-messages">
+                <!-- JavaScript insertará los mensajes aquí -->
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-header">
+                        <div class="contact-logo">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Información de Contacto</h3>
+                    </div>
+                    
+                    <p class="contact-intro">
+                        Estamos a su disposición para responder cualquier consulta relacionada con el 
+                        Centro de Convenciones, reservas, eventos o servicios.
+                    </p>
+                    
+                    <div class="contact-grid">
+                        <div class="contact-card">
+                            <div class="contact-card-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-card-content">
+                                <h4>Dirección</h4>
+                                <p>Av. Centenario 1052, D5700 San Luis, Argentina</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-card-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-card-content">
+                                <h4>Teléfono</h4>
+                                <p>+54 266 4452000</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-card-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-card-content">
+                                <h4>Email</h4>
+                                <p>info@convencionessanluis.gob.ar</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-card-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-card-content">
+                                <h4>Horarios de Atención</h4>
+                                <p>Lunes a Viernes: 8:00 - 18:00<br>Sábados: 9:00 - 13:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-container">
+                        <h3>Redes Sociales</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo.svg" alt="Centro de Convenciones San Luis">
+                    </div>
+                    <p class="footer-description">
+                        Un espacio de excelencia para eventos en el corazón de San Luis.
+                    </p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#institucional">Institucional</a></li>
+                        <li><a href="#eventos">Eventos</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#tramites">Trámites y Reservas</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Contacto</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <span class="footer-contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+                            Av. Centenario 1052, D5700 San Luis, Argentina
+                        </li>
+                        <li>
+                            <span class="footer-contact-icon"><i class="fas fa-phone"></i></span>
+                            +54 266 4452000
+                        </li>
+                        <li>
+                            <span class="footer-contact-icon"><i class="fas fa-envelope"></i></span>
+                            info@convencionessanluis.gob.ar
+                        </li>
+                    </ul>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; <span id="current-year"></span> Centro de Convenciones San Luis. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+</html>
