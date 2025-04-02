@@ -85,8 +85,8 @@ function initializeBannerSlider() {
         slides[currentSlide].classList.add('active');
     }
     
-    // Auto slide every 5 seconds
-    setInterval(nextSlide, 5000);
+    // Auto slide every 8 seconds (más pausado)
+    setInterval(nextSlide, 8000);
 }
 
 /**

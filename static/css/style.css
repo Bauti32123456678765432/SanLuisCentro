@@ -7,6 +7,25 @@
   - Background: #f8f9fa
 */
 
+/* Video Embed */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(53, 67, 147, 0.4);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
 /* Importing Ubuntu font */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
 
@@ -244,7 +263,7 @@ p {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 2s ease-in-out; /* Efecto más pausado */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -267,7 +286,8 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, rgba(53, 67, 147, 0.7), rgba(74, 172, 196, 0.7));
+  /* Solo usando los azules especificados */
+  background: linear-gradient(135deg, rgba(53, 67, 147, 0.85), rgba(74, 172, 196, 0.85));
   z-index: -1;
 }
 
@@ -500,14 +520,23 @@ p {
 }
 
 .gallery-image {
-  width: 150px;
-  height: 150px;
+  width: 300px;
+  height: 200px;
   margin-bottom: 2rem;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .gallery-image img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-image:hover img {
+  transform: scale(1.05);
 }
 
 .gallery-title {
@@ -610,11 +639,15 @@ p {
 
 .contact-container {
   display: flex;
-  gap: 2rem;
+  justify-content: center;
 }
 
 .contact-info {
-  flex: 1;
+  max-width: 800px;
+  background-color: var(--gray-100);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .contact-details {
@@ -623,23 +656,20 @@ p {
 }
 
 .contact-details li {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   display: flex;
   align-items: flex-start;
 }
 
 .contact-icon {
-  margin-right: 1rem;
+  margin-right: 1.5rem;
   color: var(--secondary-blue);
-  font-size: 1.25rem;
-  min-width: 24px;
-}
-
-.contact-form {
-  flex: 1;
-  background-color: var(--gray-100);
-  padding: 2rem;
-  border-radius: 10px;
+  font-size: 1.5rem;
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .form-group {

@@ -111,88 +111,60 @@ def get_past_events():
         }
     ]
 
-# Mock gallery images
+# Gallery images
 def get_gallery_images():
     return [
         {
             "id": 1,
             "title": "Sala Principal",
             "description": "Sala principal con capacidad para 500 personas",
-            "thumbnail": "https://cdn.jsdelivr.net/gh/twbs/icons@main/icons/building.svg"
+            "thumbnail": "/static/images/gallery1.jpg"
         },
         {
             "id": 2,
             "title": "Auditorio",
             "description": "Auditorio moderno con sistemas audiovisuales de última generación",
-            "thumbnail": "https://cdn.jsdelivr.net/gh/twbs/icons@main/icons/mic.svg"
+            "thumbnail": "/static/images/gallery2.jpg"
         },
         {
             "id": 3,
             "title": "Sala de Conferencias",
             "description": "Sala para conferencias y reuniones empresariales",
-            "thumbnail": "https://cdn.jsdelivr.net/gh/twbs/icons@main/icons/people.svg"
+            "thumbnail": "/static/images/gallery3.jpg"
         },
         {
             "id": 4,
             "title": "Área de Exposiciones",
             "description": "Amplio espacio para montaje de stands y exposiciones",
-            "thumbnail": "https://cdn.jsdelivr.net/gh/twbs/icons@main/icons/easel.svg"
+            "thumbnail": "/static/images/gallery4.jpg"
         },
         {
             "id": 5,
             "title": "Jardines",
             "description": "Espacios verdes para eventos al aire libre",
-            "thumbnail": "https://cdn.jsdelivr.net/gh/twbs/icons@main/icons/tree.svg"
+            "thumbnail": "/static/images/gallery5.jpg"
         },
         {
             "id": 6,
             "title": "Salón VIP",
             "description": "Salón exclusivo para recepciones especiales",
-            "thumbnail": "https://cdn.jsdelivr.net/gh/twbs/icons@main/icons/stars.svg"
+            "thumbnail": "/static/images/gallery6.jpg"
         }
     ]
 
 @app.route('/')
 def index():
-    news = get_latest_news()
+    # Removed news as the section is no longer needed
     upcoming_events = get_upcoming_events()
     past_events = get_past_events()
     gallery_images = get_gallery_images()
-    return render_template('index.html', 
-                          news=news, 
+    return render_template('index.html',
                           upcoming_events=upcoming_events, 
                           past_events=past_events,
                           gallery_images=gallery_images)
 
-@app.route('/contact', methods=['POST'])
-def contact():
-    if request.method == 'POST':
-        name = request.form.get('name')
-        email = request.form.get('email')
-        message = request.form.get('message')
-        
-        if not name or not email or not message:
-            flash('Por favor complete todos los campos obligatorios', 'error')
-            return redirect(url_for('index', _anchor='contacto'))
-        
-        # Create a new contact request
-        new_contact = ContactRequest(
-            name=name,
-            email=email,
-            message=message,
-            created_at=datetime.now()
-        )
-        
-        try:
-            db.session.add(new_contact)
-            db.session.commit()
-            flash('Su mensaje ha sido enviado. Nos pondremos en contacto pronto.', 'success')
-        except Exception as e:
-            logging.error(f"Error saving contact request: {str(e)}")
-            db.session.rollback()
-            flash('Hubo un problema al enviar su mensaje. Por favor intente nuevamente.', 'error')
-        
-        return redirect(url_for('index', _anchor='contacto'))
+# Removing contact form functionality as per user request
+# Contact section now only displays static information
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
