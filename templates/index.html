@@ -1,39 +1,15 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <!-- Banner Slider -->
-    <section class="banner">
-        <div class="banner-slide active">
-            <div class="banner-content">
-                <h1 class="banner-title">Centro de Convenciones San Luis</h1>
-                <p class="banner-text">
-                    El espacio ideal para sus eventos, congresos y celebraciones en el corazón de San Luis.
-                </p>
-                <a href="#tramites" class="btn btn-secondary banner-btn">Reservar Ahora</a>
+    <!-- Banner Estático -->
+    <section class="banner static-banner">
+        <div class="banner-static-content">
+            <div class="banner-logo">
+                <i class="fas fa-building"></i>
             </div>
-            <img src="{{ url_for('static', filename='images/banner1.svg') }}" alt="Centro de Convenciones" style="position: absolute; z-index: -2; width: 100%; height: 100%; object-fit: cover;">
-        </div>
-        
-        <div class="banner-slide">
-            <div class="banner-content">
-                <h1 class="banner-title">Próximos Eventos</h1>
-                <p class="banner-text">
-                    Descubre nuestra agenda de eventos y actividades para los próximos meses.
-                </p>
-                <a href="#eventos" class="btn btn-secondary banner-btn">Ver Eventos</a>
-            </div>
-            <img src="{{ url_for('static', filename='images/banner2.svg') }}" alt="Próximos Eventos" style="position: absolute; z-index: -2; width: 100%; height: 100%; object-fit: cover;">
-        </div>
-        
-        <div class="banner-slide">
-            <div class="banner-content">
-                <h1 class="banner-title">Congresos y Convenciones</h1>
-                <p class="banner-text">
-                    Espacios modernos y funcionales para eventos profesionales de gran escala.
-                </p>
-                <a href="#galeria" class="btn btn-secondary banner-btn">Ver Instalaciones</a>
-            </div>
-            <img src="{{ url_for('static', filename='images/banner3.svg') }}" alt="Congresos y Convenciones" style="position: absolute; z-index: -2; width: 100%; height: 100%; object-fit: cover;">
+            <h1 class="banner-title">Centro de Convenciones San Luis</h1>
+            <div class="banner-decoration"></div>
+            <a href="#tramites" class="btn btn-primary banner-btn">Reservar Ahora</a>
         </div>
     </section>
     

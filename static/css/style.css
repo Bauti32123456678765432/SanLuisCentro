@@ -10,13 +10,13 @@
 /* Video Embed */
 .video-container {
   position: relative;
-  padding-bottom: 62.5%; /* proporción personalizada para un video más grande */
+  padding-bottom: 75%; /* mayor proporción para un video más grande */
   height: 0;
   overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 8px 30px rgba(53, 67, 147, 0.5);
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(53, 67, 147, 0.6);
   margin: 0 auto;
-  max-width: 90%;
+  max-width: 100%; /* ancho completo */
 }
 
 .video-container iframe {
@@ -260,63 +260,105 @@ p {
   padding-top: var(--header-height);
   position: relative;
   height: 500px;
-  background-color: var(--gray-200);
   overflow: hidden;
 }
 
-.banner-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 2s ease-in-out; /* Efecto más pausado */
+.static-banner {
+  background: linear-gradient(135deg, #354393, #4aacc4);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--white);
   text-align: center;
-  padding: 2rem;
-  background-size: cover;
-  background-position: center;
-  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  color: var(--white);
 }
 
-.banner-slide.active {
-  opacity: 1;
-}
-
-.banner-slide::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Solo usando los azules especificados */
-  background: linear-gradient(135deg, rgba(53, 67, 147, 0.85), rgba(74, 172, 196, 0.85));
-  z-index: -1;
-}
-
-.banner-content {
-  max-width: 800px;
+.banner-static-content {
+  max-width: 900px;
+  padding: 0 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   z-index: 1;
 }
 
-.banner-title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--white);
+.banner-logo {
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  font-size: 3.5rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-.banner-text {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
+.banner-logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.banner-decoration {
+  width: 100px;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 2rem auto 3rem;
+  border-radius: 2px;
+  position: relative;
+}
+
+.banner-decoration:before, 
+.banner-decoration:after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: white;
+  top: -4px;
+}
+
+.banner-decoration:before {
+  left: -6px;
+}
+
+.banner-decoration:after {
+  right: -6px;
+}
+
+.banner-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--white);
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  letter-spacing: 1px;
 }
 
 .banner-btn {
   display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  color: white;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.banner-btn:hover {
+  background-color: white;
+  color: var(--primary-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Institutional Section */
@@ -335,7 +377,7 @@ p {
 }
 
 .institutional-image {
-  flex: 1;
+  flex: 1.5; /* Más espacio para el video */
   text-align: center;
 }
 

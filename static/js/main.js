@@ -66,34 +66,11 @@ function initializeEventsTabs() {
 }
 
 /**
- * Initialize banner slider functionality
+ * Banner functionality removed as it's now a static banner
  */
 function initializeBannerSlider() {
-    const slides = document.querySelectorAll('.banner-slide');
-    
-    if (!slides.length) return;
-    
-    let currentSlide = 0;
-    
-    // Ocultar todas las diapositivas primero
-    slides.forEach(slide => {
-        slide.classList.remove('active');
-    });
-    
-    // Mostrar la primera diapositiva
-    slides[0].classList.add('active');
-    
-    // Función para mostrar la siguiente diapositiva
-    function nextSlide() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-    }
-    
-    // Auto slide cada 8 segundos para todas las diapositivas
-    if (slides.length > 1) {
-        setInterval(nextSlide, 8000);
-    }
+    // Banner is now static, no need for slider functionality
+    return;
 }
 
 /**
