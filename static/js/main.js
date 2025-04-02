@@ -75,18 +75,25 @@ function initializeBannerSlider() {
     
     let currentSlide = 0;
     
-    // Show first slide
+    // Ocultar todas las diapositivas primero
+    slides.forEach(slide => {
+        slide.classList.remove('active');
+    });
+    
+    // Mostrar la primera diapositiva
     slides[0].classList.add('active');
     
-    // Function to show next slide
+    // Función para mostrar la siguiente diapositiva
     function nextSlide() {
         slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add('active');
     }
     
-    // Auto slide every 8 seconds (más pausado)
-    setInterval(nextSlide, 8000);
+    // Auto slide cada 8 segundos para todas las diapositivas
+    if (slides.length > 1) {
+        setInterval(nextSlide, 8000);
+    }
 }
 
 /**
