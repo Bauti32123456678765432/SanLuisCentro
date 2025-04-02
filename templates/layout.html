@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Convenciones San Luis</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/twbs/icons@main/icons/building.svg" type="image/svg+xml">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Ubuntu Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="/" class="logo">
+                <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Centro de Convenciones San Luis">
+            </a>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#institucional">Institucional</a></li>
+                <li><a href="#eventos">Eventos</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#tramites">Trámites y Reservas</a></li>
+                <li><a href="#contacto" class="btn btn-primary contact-btn">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Centro de Convenciones San Luis">
+                </div>
+                <p class="footer-description">
+                    El Centro de Convenciones de San Luis es el espacio ideal para la realización de eventos de todo tipo, 
+                    reuniones empresariales, congresos, exposiciones y celebraciones en la provincia de San Luis.
+                </p>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-title">Enlaces</h3>
+                <ul class="footer-links">
+                    <li><a href="https://www.sanluis.gov.ar/" target="_blank">Gobierno de San Luis</a></li>
+                    <li><a href="https://turismo.sanluis.gov.ar/" target="_blank">Turismo San Luis</a></li>
+                    <li><a href="https://untsl.edu.ar/" target="_blank">Universidad Nacional de San Luis</a></li>
+                    <li><a href="https://agenciasanluis.com/" target="_blank">Agencia de Noticias San Luis</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-title">Contacto</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-map-marker-alt footer-contact-icon"></i>
+                        <span>Av. Centenario 1052, San Luis, Argentina</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone footer-contact-icon"></i>
+                        <span>+54 266 4452000</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope footer-contact-icon"></i>
+                        <span>info@convencionessanluis.gob.ar</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <p class="copyright">
+            &copy; 2023 Centro de Convenciones San Luis. Todos los derechos reservados.
+        </p>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/gallery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/form-validation.js') }}"></script>
+</body>
+</html>

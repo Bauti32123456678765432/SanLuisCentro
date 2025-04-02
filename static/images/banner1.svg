@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#354393" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#4aacc4" stop-opacity="0.8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#grad1)" />
+  
+  <!-- Pattern Overlay -->
+  <path d="M0,0 L1200,0 L1200,500 L0,500 Z" fill="#ffffff" fill-opacity="0.05" />
+  
+  <!-- Pattern Dots -->
+  <g fill="#ffffff" fill-opacity="0.1">
+    <circle cx="100" cy="100" r="5" />
+    <circle cx="200" cy="100" r="5" />
+    <circle cx="300" cy="100" r="5" />
+    <circle cx="400" cy="100" r="5" />
+    <circle cx="500" cy="100" r="5" />
+    <circle cx="600" cy="100" r="5" />
+    <circle cx="700" cy="100" r="5" />
+    <circle cx="800" cy="100" r="5" />
+    <circle cx="900" cy="100" r="5" />
+    <circle cx="1000" cy="100" r="5" />
+    <circle cx="1100" cy="100" r="5" />
+    
+    <circle cx="100" cy="200" r="5" />
+    <circle cx="200" cy="200" r="5" />
+    <circle cx="300" cy="200" r="5" />
+    <circle cx="400" cy="200" r="5" />
+    <circle cx="500" cy="200" r="5" />
+    <circle cx="600" cy="200" r="5" />
+    <circle cx="700" cy="200" r="5" />
+    <circle cx="800" cy="200" r="5" />
+    <circle cx="900" cy="200" r="5" />
+    <circle cx="1000" cy="200" r="5" />
+    <circle cx="1100" cy="200" r="5" />
+    
+    <circle cx="100" cy="300" r="5" />
+    <circle cx="200" cy="300" r="5" />
+    <circle cx="300" cy="300" r="5" />
+    <circle cx="400" cy="300" r="5" />
+    <circle cx="500" cy="300" r="5" />
+    <circle cx="600" cy="300" r="5" />
+    <circle cx="700" cy="300" r="5" />
+    <circle cx="800" cy="300" r="5" />
+    <circle cx="900" cy="300" r="5" />
+    <circle cx="1000" cy="300" r="5" />
+    <circle cx="1100" cy="300" r="5" />
+    
+    <circle cx="100" cy="400" r="5" />
+    <circle cx="200" cy="400" r="5" />
+    <circle cx="300" cy="400" r="5" />
+    <circle cx="400" cy="400" r="5" />
+    <circle cx="500" cy="400" r="5" />
+    <circle cx="600" cy="400" r="5" />
+    <circle cx="700" cy="400" r="5" />
+    <circle cx="800" cy="400" r="5" />
+    <circle cx="900" cy="400" r="5" />
+    <circle cx="1000" cy="400" r="5" />
+    <circle cx="1100" cy="400" r="5" />
+  </g>
+  
+  <!-- Building Icon -->
+  <g transform="translate(600, 200) scale(1.5)" fill="#ffffff" fill-opacity="0.15">
+    <rect x="-50" y="-50" width="100" height="100" rx="5" />
+    <rect x="-35" y="-35" width="20" height="30" rx="2" />
+    <rect x="15" y="-35" width="20" height="30" rx="2" />
+    <rect x="-35" y="5" width="20" height="30" rx="2" />
+    <rect x="15" y="5" width="20" height="30" rx="2" />
+  </g>
+</svg>

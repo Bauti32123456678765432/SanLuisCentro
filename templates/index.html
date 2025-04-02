@@ -1,0 +1,368 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <!-- Banner Slider -->
+    <section class="banner">
+        <div class="banner-slide active">
+            <div class="banner-content">
+                <h1 class="banner-title">Centro de Convenciones San Luis</h1>
+                <p class="banner-text">
+                    El espacio ideal para sus eventos, congresos y celebraciones en el corazón de San Luis.
+                </p>
+                <a href="#tramites" class="btn btn-secondary banner-btn">Reservar Ahora</a>
+            </div>
+            <img src="{{ url_for('static', filename='images/banner1.svg') }}" alt="Centro de Convenciones" style="position: absolute; z-index: -2; width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        
+        <div class="banner-slide">
+            <div class="banner-content">
+                <h1 class="banner-title">Próximos Eventos</h1>
+                <p class="banner-text">
+                    Descubre nuestra agenda de eventos y actividades para los próximos meses.
+                </p>
+                <a href="#eventos" class="btn btn-secondary banner-btn">Ver Eventos</a>
+            </div>
+            <img src="{{ url_for('static', filename='images/banner2.svg') }}" alt="Próximos Eventos" style="position: absolute; z-index: -2; width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        
+        <div class="banner-slide">
+            <div class="banner-content">
+                <h1 class="banner-title">Congresos y Convenciones</h1>
+                <p class="banner-text">
+                    Espacios modernos y funcionales para eventos profesionales de gran escala.
+                </p>
+                <a href="#galeria" class="btn btn-secondary banner-btn">Ver Instalaciones</a>
+            </div>
+            <img src="{{ url_for('static', filename='images/banner3.svg') }}" alt="Congresos y Convenciones" style="position: absolute; z-index: -2; width: 100%; height: 100%; object-fit: cover;">
+        </div>
+    </section>
+    
+    <!-- Institutional Section -->
+    <section id="institucional" class="section institutional">
+        <div class="container">
+            <h2 class="section-title">Institucional</h2>
+            
+            <div class="institutional-content">
+                <div class="institutional-text">
+                    <h3>Sobre el Centro de Convenciones</h3>
+                    <p>
+                        El Centro de Convenciones de San Luis es un espacio multipropósito diseñado para la 
+                        realización de eventos culturales, académicos, empresariales y sociales, con una 
+                        infraestructura moderna y funcional.
+                    </p>
+                    <p>
+                        Inaugurado en 2018, nuestro centro cuenta con más de 10.000 m² cubiertos distribuidos 
+                        en diferentes espacios que se adaptan a las necesidades específicas de cada evento.
+                    </p>
+                    
+                    <h3>Misión</h3>
+                    <p>
+                        Posicionar a San Luis como un destino de excelencia para la realización de eventos a 
+                        nivel nacional e internacional, contribuyendo al desarrollo económico, cultural y turístico 
+                        de la provincia.
+                    </p>
+                    
+                    <h3>Visión</h3>
+                    <p>
+                        Ser reconocidos como un referente en la organización y desarrollo de eventos en Argentina, 
+                        destacando por la excelencia en el servicio, la innovación y el compromiso con el desarrollo 
+                        sostenible.
+                    </p>
+                </div>
+                
+                <div class="institutional-image">
+                    <svg width="400" height="300" viewBox="0 0 400 300">
+                        <rect width="400" height="300" fill="#354393" rx="10" />
+                        <rect x="20" y="30" width="360" height="240" fill="#f8f9fa" rx="5" />
+                        <text x="200" y="120" font-size="24" font-family="Ubuntu, sans-serif" font-weight="700" text-anchor="middle" fill="#354393">Centro de Convenciones</text>
+                        <text x="200" y="150" font-size="18" font-family="Ubuntu, sans-serif" font-weight="400" text-anchor="middle" fill="#354393">San Luis</text>
+                        <text x="200" y="200" font-size="14" font-family="Ubuntu, sans-serif" font-weight="300" text-anchor="middle" fill="#414242">Excelencia en eventos desde 2018</text>
+                        <rect x="100" y="220" width="200" height="20" fill="#4aacc4" rx="5" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Events Section -->
+    <section id="eventos" class="section events">
+        <div class="container">
+            <h2 class="section-title">Eventos</h2>
+            
+            <div class="events-tabs">
+                <button class="events-tab active" data-target="upcoming-events">Próximos</button>
+                <button class="events-tab" data-target="past-events">Anteriores</button>
+            </div>
+            
+            <div id="upcoming-events" class="events-content active">
+                <div class="events-grid">
+                    {% for event in upcoming_events %}
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="{{ event.image }}" alt="{{ event.title }}">
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">{{ event.title }}</h3>
+                            <p class="event-date">{{ event.date }}</p>
+                            <p class="event-description">{{ event.description }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div id="past-events" class="events-content">
+                <div class="events-grid">
+                    {% for event in past_events %}
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="{{ event.image }}" alt="{{ event.title }}">
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">{{ event.title }}</h3>
+                            <p class="event-date">{{ event.date }}</p>
+                            <p class="event-description">{{ event.description }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section id="galeria" class="section gallery">
+        <div class="container">
+            <h2 class="section-title">Galería</h2>
+            
+            <div class="gallery-carousel">
+                <button class="gallery-btn gallery-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="gallery-carousel-container">
+                    {% for image in gallery_images %}
+                    <div class="gallery-slide">
+                        <div class="gallery-image">
+                            <img src="{{ image.thumbnail }}" alt="{{ image.title }}">
+                        </div>
+                        <h3 class="gallery-title">{{ image.title }}</h3>
+                        <p class="gallery-description">{{ image.description }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <button class="gallery-btn gallery-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="gallery-nav">
+                {% for image in gallery_images %}
+                <div class="gallery-dot"></div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+    <!-- Reservations Section -->
+    <section id="tramites" class="section reservations">
+        <div class="container">
+            <h2 class="section-title">Trámites y Reservas</h2>
+            
+            <div class="reservations-container">
+                <div class="reservations-info">
+                    <h3>Información para Reservas</h3>
+                    <p>
+                        El Centro de Convenciones de San Luis ofrece múltiples espacios para la realización 
+                        de diferentes tipos de eventos:
+                    </p>
+                    
+                    <ul>
+                        <li>Sala Principal con capacidad para 500 personas</li>
+                        <li>Auditorio con 300 butacas</li>
+                        <li>5 Salas de conferencias (capacidad de 50 a 150 personas)</li>
+                        <li>Área de exposiciones de 2.000 m²</li>
+                        <li>Salón VIP para recepciones</li>
+                        <li>Áreas exteriores para eventos al aire libre</li>
+                    </ul>
+                    
+                    <p>
+                        Cada espacio cuenta con equipamiento audiovisual, climatización, internet de alta 
+                        velocidad y posibilidad de servicios de catering, seguridad y asistencia técnica.
+                    </p>
+                    
+                    <h3>Tarifas</h3>
+                    <p>
+                        Las tarifas varían según el espacio, la duración del evento y los servicios adicionales 
+                        requeridos. Para solicitar un presupuesto personalizado, puede completar nuestro formulario 
+                        de contacto o comunicarse directamente con nosotros.
+                    </p>
+                    
+                    <p>
+                        <strong>Nota:</strong> El Centro de Convenciones ofrece tarifas especiales para instituciones 
+                        educativas, organismos gubernamentales y organizaciones sin fines de lucro.
+                    </p>
+                </div>
+                
+                <div class="reservations-process">
+                    <h3>Proceso de Reserva</h3>
+                    
+                    <ul class="process-steps">
+                        <li class="process-step">
+                            <h4 class="step-title">Consulta de Disponibilidad</h4>
+                            <p>
+                                Complete el formulario de contacto especificando el tipo de evento, fecha, 
+                                cantidad de asistentes y requisitos especiales. También puede comunicarse 
+                                telefónicamente al +54 266 4452000.
+                            </p>
+                        </li>
+                        
+                        <li class="process-step">
+                            <h4 class="step-title">Presupuesto</h4>
+                            <p>
+                                Recibirá un presupuesto detallado con los espacios disponibles y servicios 
+                                incluidos dentro de las 48 horas hábiles.
+                            </p>
+                        </li>
+                        
+                        <li class="process-step">
+                            <h4 class="step-title">Confirmación</h4>
+                            <p>
+                                Para confirmar la reserva, deberá abonar un anticipo del 30% del valor total 
+                                y firmar el contrato correspondiente.
+                            </p>
+                        </li>
+                        
+                        <li class="process-step">
+                            <h4 class="step-title">Planificación Final</h4>
+                            <p>
+                                Nuestro equipo coordinará con usted todos los detalles del evento, desde la 
+                                disposición de espacios hasta servicios adicionales, garantizando el éxito 
+                                de su evento.
+                            </p>
+                        </li>
+                    </ul>
+                    
+                    <a href="#contacto" class="btn btn-primary">Solicitar Información</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contacto" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            
+            <!-- Flash Messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <p>
+                        Estamos a su disposición para responder cualquier consulta relacionada con el 
+                        Centro de Convenciones, reservas, eventos o servicios.
+                    </p>
+                    
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <div>
+                                <strong>Dirección:</strong>
+                                <p>Av. Centenario 1052, D5700 San Luis, Argentina</p>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <i class="fas fa-phone contact-icon"></i>
+                            <div>
+                                <strong>Teléfono:</strong>
+                                <p>+54 266 4452000</p>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <div>
+                                <strong>Email:</strong>
+                                <p>info@convencionessanluis.gob.ar</p>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <i class="fas fa-clock contact-icon"></i>
+                            <div>
+                                <strong>Horarios de Atención:</strong>
+                                <p>Lunes a Viernes: 8:00 - 18:00<br>Sábados: 9:00 - 13:00</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <h3>Redes Sociales</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Envíenos un Mensaje</h3>
+                    <form id="contactForm" action="{{ url_for('contact') }}" method="POST">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nombre *</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Mensaje *</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- News Section -->
+    <section class="section news">
+        <div class="container">
+            <h2 class="section-title">Últimas Noticias</h2>
+            
+            <div class="news-grid">
+                {% for item in news %}
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="{{ item.image }}" alt="{{ item.title }}">
+                    </div>
+                    <div class="news-content">
+                        <p class="news-date">{{ item.date }}</p>
+                        <h3 class="news-title">{{ item.title }}</h3>
+                        <p class="news-summary">{{ item.summary }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

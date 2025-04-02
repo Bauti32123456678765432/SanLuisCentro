@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">
+  <style>
+    .logo-text { font-family: 'Ubuntu', sans-serif; font-weight: 700; }
+    .primary { fill: #354393; }
+    .secondary { fill: #4aacc4; }
+  </style>
+  
+  <!-- Building Icon -->
+  <g class="primary">
+    <rect x="10" y="15" width="60" height="50" rx="3" />
+    <rect x="20" y="25" width="10" height="15" rx="1" />
+    <rect x="40" y="25" width="10" height="15" rx="1" />
+    <rect x="20" y="45" width="10" height="15" rx="1" />
+    <rect x="40" y="45" width="10" height="15" rx="1" />
+    <rect x="25" y="10" width="30" height="5" rx="2" />
+  </g>
+  
+  <!-- Accent Elements -->
+  <path class="secondary" d="M10,65 L70,65 L70,62 L10,62 Z" />
+  <path class="secondary" d="M25,10 L55,10 L55,7 L25,7 Z" />
+  
+  <!-- Text -->
+  <text x="80" y="35" class="logo-text primary" font-size="22">CENTRO DE</text>
+  <text x="80" y="60" class="logo-text secondary" font-size="24">CONVENCIONES</text>
+  <text x="276" y="60" class="logo-text primary" font-size="24">SL</text>
+</svg>
