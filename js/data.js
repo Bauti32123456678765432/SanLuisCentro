@@ -3,22 +3,22 @@
  */
 const upcomingEventsData = [
     {
-        title: "Feria Internacional de Turismo",
-        date: "15-17 Mayo 2025",
-        description: "Exhibición de destinos turísticos nacionales e internacionales con stands de más de 20 países.",
-        image: "images/event1.svg"
+        title: "Primer Congreso Provincial de Primera Infancia",
+        date: "27 de Noviembre de 2024",
+        description: "Congreso para profesionales de jardines maternales, con conferencias de expertos.",
+        image: "images/WhatsApp-Image-2024-11-27-at-9.52.57-AM-1-1536x1022.jpeg"
     },
     {
-        title: "Congreso de Energías Renovables",
-        date: "5-7 Junio 2025",
-        description: "Encuentro de especialistas en energías limpias, nuevas tecnologías y desarrollo sostenible.",
-        image: "images/event2.svg"
+        title: "Expo Innova ConCiencia",
+        date: "15-16 de Noviembre de 2024",
+        description: "Empresas, investigadores y la comunidad se reunieron para mostrar avances locales en robótica, biotecnología y más.",
+        image: "images/WhatsApp-Image-2024-10-24-at-11.17.47-1536x1024.jpeg"
     },
     {
-        title: "Festival Gastronómico",
-        date: "20-22 Junio 2025",
-        description: "Degustación de platos típicos de todas las regiones del país con chefs invitados internacionales.",
-        image: "images/event3.svg"
+        title: "Certamen Nacional De Malambo ",
+        date: "14 de Septiembre de 2024",
+        description: "Artistas de toda la provincia compitieron en La Punta para formar la delegación que representará a San Luis en el Festival Nacional del Malambo en Laborde.",
+        image: "images/f7ZmKXM_4_720x0__1.jpg"
     }
 ];
 
@@ -51,23 +51,23 @@ const pastEventsData = [
  */
 const galleryImages = [
     {
-        title: "Sala Principal",
-        description: "Espacio con capacidad para 500 personas con equipamiento de última generación.",
-        thumbnail: "images/gallery1.svg"
+        title: "Salón Principal",
+        description: "Espacio de 1.600 m² con capacidad para 2000 personas con equipamiento de última generación.",
+        thumbnail: "images/Undfdtitled.png"
     },
     {
-        title: "Auditorio",
-        description: "300 butacas con excelente acústica y sistema audiovisual integrado.",
-        thumbnail: "images/gallery2.svg"
+        title: "Salas Secundarias",
+        description: "Dos salas multifuncionales complementarias de 400 m² cada una, ideales para eventos más pequeños.",
+        thumbnail: "images/sdfsdf.png"
     },
     {
-        title: "Área de Exposiciones",
-        description: "2.000 m² para exposiciones, ferias y eventos de gran escala.",
-        thumbnail: "images/gallery3.svg"
+        title: "Lobby y Hall Central",
+        description: "Espacios amplios y versátiles de bienvenida, con un lobby diseñado para recepciones y registros, y un hall central perfecto para networking, stands o áreas de transición entre eventos.",
+        thumbnail: "images/hall.png"
     },
     {
-        title: "Salón VIP",
-        description: "Espacio exclusivo para recepciones y eventos corporativos especiales.",
-        thumbnail: "images/gallery4.svg"
+        title: "Vista Aérea",
+        description: "Vista panoramica del Centro de Convenciones, junto a La Recova Hotel y la Réplica Cabildo",
+        thumbnail: "images/texto.png"
     }
 ];

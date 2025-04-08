@@ -53,7 +53,7 @@
   --gray-700: #495057;
   --gray-800: #343a40;
   --gray-900: #212529;
-  --header-height: 80px;
+  --header-height: 85px;
   --transition-speed: 0.3s;
 }
 
@@ -164,7 +164,9 @@ p {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--white);
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);           /* Efecto de difuminado */
+
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   height: var(--header-height);
@@ -174,33 +176,52 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
+  /* Force full width and remove auto centering */
+  width: 100%;
+  max-width: 100%; 
+  margin: 0;
+  padding: 0 2rem; /* or any side padding you want */
+}
+
+.nav-menu a.contact-btn:hover {
+  color: var(--white);
 }
 
 .logo {
-  height: 60px;
+  height: 90px;
   display: flex;
   align-items: center;
 }
 
+/* 
+   Changed from height: 150% to auto so it doesn't exceed .logo container. 
+   Also ensures it stays aligned with the nav links.
+*/
 .logo img {
-  height: 100%;
+  height: auto;
+  max-height: 100%;
 }
 
 .nav-menu {
+  /* Removed margin-top: 1.5rem to keep items on the same line as the logo */
   display: flex;
   list-style: none;
+  align-items: center; /* Make sure nav links are vertically centered */
+  margin-top: 0;
+  
 }
 
 .nav-menu li {
   margin-left: 1.5rem;
 }
 
+/* Removed margin-top from the anchor if you like them perfectly centered */
 .nav-menu a {
   text-decoration: none;
   color: var(--complementary);
   font-weight: 400;
   padding: 0.5rem;
+  margin-top: 0; /* remove or keep at 0 if needed for perfect alignment */
   position: relative;
   transition: color var(--transition-speed) ease;
 }
@@ -250,12 +271,19 @@ p {
 .banner {
   padding-top: var(--header-height);
   position: relative;
-  height: 500px;
+  height: 800px;
   overflow: hidden;
 }
 
 .static-banner {
-  background: linear-gradient(135deg, #354393, #4aacc4);
+  background: linear-gradient(
+      to bottom, 
+      rgba(56,82,154,0) 0%,  /* 70% of the way down stays transparent */
+      rgba(56,82,154,0.9) 100% /* then transitions to blue at the bottom */
+    ),
+    url('../images/DDg1x0ZUQAAxjZp.jpg');
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -264,7 +292,7 @@ p {
 }
 
 .banner-static-content {
-  max-width: 900px;
+  max-width: 2000px;
   padding: 0 2rem;
   text-align: center;
   display: flex;
@@ -323,7 +351,7 @@ p {
 }
 
 .banner-title {
-  font-size: 3.5rem;
+  font-size: 5rem;
   font-weight: 700;
   margin-bottom: 1rem;
   color: var(--white);
@@ -441,17 +469,18 @@ p {
 }
 
 .event-image {
+  /* Keep or remove the fixed height, depending on your design */
   height: 200px;
+  /* Remove or keep background-color if you want a fallback color */
   background-color: var(--primary-blue);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden; /* ensures any overflow is hidden if image is cropped */
 }
 
 .event-image img {
-  width: 80px;
-  height: 80px;
-  filter: invert(1);
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills container, cropping if necessary */
+  display: block;    /* remove any extra space from inline-block default */
 }
 
 .event-details {
@@ -496,7 +525,7 @@ p {
 .gallery-slide {
   flex: 0 0 100%;
   min-width: 100%;
-  padding: 2rem;
+  padding: 0rem;
   background-color: var(--gray-100);
   display: flex;
   flex-direction: column;
@@ -504,7 +533,7 @@ p {
   justify-content: center;
   text-align: center;
   transition: transform var(--transition-speed) ease;
-  height: 400px;
+  height: 600px;
 }
 
 .gallery-nav {
@@ -561,8 +590,8 @@ p {
 }
 
 .gallery-image {
-  width: 300px;
-  height: 200px;
+  width: 800px;
+  height: 600px;
   margin-bottom: 2rem;
   overflow: hidden;
   border-radius: 8px;
@@ -754,111 +783,176 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
 }
 
-.contact-card-content h4 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
+/* --- Ajustes de distribución del Footer (respetando la tipografía y colores originales) --- */
 
-.social-container {
-  padding-top: 1rem;
-  border-top: 1px solid var(--gray-300);
-}
-
-.social-container h3 {
-  margin-bottom: 1.5rem;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.2rem;
-}
-
-/* Alert/Messages */
-.alert {
-  padding: 1rem;
-  border-radius: 5px;
-  margin-bottom: 1rem;
-  position: relative;
-}
-
-.alert-success {
-  background-color: rgba(40, 167, 69, 0.1);
-  border-left: 4px solid var(--success);
-  color: var(--success);
-}
-
-.alert-error {
-  background-color: rgba(220, 53, 69, 0.1);
-  border-left: 4px solid var(--danger);
-  color: var(--danger);
-}
-
-.alert-close {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-}
-
-.alert-close:hover {
-  opacity: 1;
-}
-
-.fade-out {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-/* Footer */
-.footer {
-  background-color: var(--complementary);
-  color: var(--white);
-  padding: 4rem 0 2rem;
-}
-
+/* Organiza las columnas en el footer */
 .footer-container {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
+/* Asigna un ancho mínimo a cada columna para que se distribuyan bien */
 .footer-column {
-  flex: 1;
-  min-width: 200px;
+  flex: 1 1 250px;
+  min-width: 250px;
 }
 
-.footer-logo {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.footer-logo img {
-  height: 60px;
-  filter: brightness(0) invert(1);
-}
-
-.footer-description {
-  color: var(--gray-400);
-  margin-bottom: 1rem;
-}
-
+/* Mantiene la tipografía y colores de los títulos */
 .footer-title {
-  color: var(--secondary-blue);
-  font-size: 1.25rem;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  color: var(--secondary-blue); /* Color ya definido */
   margin-bottom: 1.5rem;
   position: relative;
 }
+.footer-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background-color: var(--secondary-blue); /* Igual al color original */
+  margin-top: 0.5rem;
+}
 
+/* Conserva los estilos de los enlaces */
+.footer-links a {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  color: var(--gray-400); /* Color original */
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+}
+.footer-links a:hover {
+  color: var(--secondary-blue);
+}
+
+/* Ajusta el padding general del footer para un mejor balance sin cambiar sus colores */
+.footer {
+  padding: 4rem 0 2rem;
+}
+/* Ajustes de distribución y espaciado en el Footer */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;        /* Permite que las columnas se pasen a la siguiente línea si no hay espacio */
+  gap: 2rem;              /* Espacio horizontal y vertical entre columnas */
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Cada columna se adapta, pero no baja de 250px de ancho */
+.footer-column {
+  flex: 1 1 250px; 
+  min-width: 250px;
+}
+
+/* Si tenés dos o más imágenes en la misma columna (por ej. logos), alinealas con flex */
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;               /* Espacio entre las imágenes */
+  margin-bottom: 1rem;     /* Espacio debajo de las imágenes */
+}
+.footer-logo img {
+  max-height: 60px;        /* Ajustá según tu preferencia */
+  filter: none;            /* Preserva colores originales de la imagen */
+}
+
+/* Asegurate de que tus listas de enlaces no tengan márgenes/padding extra */
+.footer-links,
+.footer-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Espaciado entre elementos de la lista de enlaces */
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+/* Espaciado entre elementos de la lista de contacto */
+.footer-contact li {
+  margin-bottom: 1rem;
+  display: flex;           /* Para que el ícono y texto estén alineados en la misma fila */
+  align-items: flex-start;
+}
+.footer-contact-icon {
+  margin-right: 0.5rem;
+  /* Conserva tu color var(--secondary-blue) o el que tengas */
+}
+
+/* Para las redes sociales */
+.social-links {
+  display: flex;
+  gap: 1rem;               /* Separación entre íconos */
+  margin-top: 1rem;
+}
+
+/* Centrado y espacio para el copyright */
+.copyright {
+  text-align: center;
+  margin-top: 2rem;
+}
+/* FOOTER: Distribución y legibilidad sin alterar tu paleta de colores */
+
+/* Reduce padding vertical para que no sea tan alto */
+.footer {
+  /* Blue background */
+  background-color: #354393;  
+  /* Add the logo as a background image on the left */
+  /* Adjust background size as needed (e.g., here the height is set to 80px) */
+  background-size: auto 80px;
+  padding: 2rem 0;       /* Update the padding as needed */
+  position: relative;    /* Useful if you add other positioned elements */
+}
+
+/* Organización de columnas en el footer */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;             /* Permite que las columnas salten de línea en pantallas pequeñas */
+  gap: 1.5rem;                 /* Espacio horizontal/vertical entre columnas */
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Cada columna se ajusta, pero no baja de 200px de ancho */
+.footer-column {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+/* Ajusta la imagen/logo para que no ocupe tanta altura */
+.footer-logo {
+  display: flex;               /* Si tienes dos o más logos, se verán en fila con gap */
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.footer-logo img {
+  max-height: 100px;            /* Reduce altura del logo */
+  filter: none;                /* Mantiene colores originales */
+}
+
+/* Texto descriptivo con menos separación de líneas */
+.footer-description {
+  margin-bottom: 1rem;
+  line-height: 1.4;            /* Reduce el interlineado para ocupar menos espacio vertical */
+}
+
+/* Títulos del footer un poco más grandes y visibles */
+.footer-title {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--secondary-blue);
+  margin-bottom: 1rem;
+  position: relative;
+}
 .footer-title::after {
   content: "";
   display: block;
@@ -868,193 +962,327 @@ p {
   margin-top: 0.5rem;
 }
 
-.footer-links {
-  list-style: none;
-}
-
-.footer-links li {
-  margin-bottom: 0.75rem;
-}
-
+/* Enlaces rápidos: letra un poco más grande y color oscuro para legibilidad */
 .footer-links a {
-  color: var(--gray-400);
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(white);      /* Más oscuro para mejor contraste */
   text-decoration: none;
   transition: color var(--transition-speed) ease;
 }
-
 .footer-links a:hover {
   color: var(--secondary-blue);
 }
 
-.social-links {
+/* Contacto: íconos y texto en la misma línea */
+.footer-contact li {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.footer-contact-icon {
+  margin-right: 0.5rem;
 }
 
-.social-link {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
+/* Íconos de redes sociales en fila con leve espacio */
+.social-links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.social-links a {
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--white);
-  text-decoration: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--secondary-blue);
+  color: #fff;
   transition: background-color var(--transition-speed) ease;
 }
-
-.social-link:hover {
-  background-color: var(--secondary-blue);
+.social-links a:hover {
+  background-color: var(--gray-800);
+  text-decoration: none;
 }
 
-.footer-contact {
-  list-style: none;
+/* Copyright centrado y con fuente más discreta */
+.copyright {
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--gray-600);
+  font-size: 0.875rem;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+}
+/* --- Sección Contacto Renovada (manteniendo tu paleta y tipografía) --- */
+
+/* Contenedor general del bloque de contacto */
+.section.contact {
+  background-color: var(--light); /* o var(--white), según tu preferencia */
+  padding: 3rem 0;               /* Ajusta para más/menos espacio vertical */
 }
 
-.footer-contact li {
-  margin-bottom: 1rem;
+/* Contenedor principal con fondo blanco, centrado y un poco de sombra */
+.contact-info {
+  max-width: 860px;
+  margin: 0 auto;
+  background-color: #fff; /* Mantén un fondo claro para destacar la info */
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(53, 67, 147, 0.2);
+  text-align: center;     /* Centra todo el contenido interno */
+}
+
+/* Encabezado: icono circular y título */
+.contact-header {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.contact-logo {
+  width: 80px;
+  height: 80px;
+  background-color: var(--primary-blue);
+  color: #fff;
+  font-size: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  box-shadow: 0 5px 15px rgba(53, 67, 147, 0.3);
+}
+
+/* Texto introductorio, con ancho limitado y centrado */
+.contact-intro {
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.1rem;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+/* Grid de tarjetas (Dirección, Teléfono, Email, Horarios) */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+/* Cada tarjeta: fondo blanco, sombra sutil, centrada */
+.contact-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(53, 67, 147, 0.15);
+}
+
+/* Ícono circular dentro de la tarjeta (ej. para Dirección, Teléfono...) */
+.contact-card-icon {
+  width: 60px;
+  height: 60px;
+  background-color: var(--secondary-blue);
+  color: #fff;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+/* Contenedor de redes sociales, centrado y con título */
+.social-container {
+  margin-top: 2rem;
+}
+
+.social-container h3 {
+  margin-bottom: 1rem;
+  color: var(--primary-blue);
+  font-weight: 700;
+}
+
+/* Íconos de redes sociales centrados */
+.social-links {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente los íconos */
+  gap: 1.2rem;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--secondary-blue);
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  text-decoration: none;  /* Sin subrayado */
+}
+.social-links a:hover {
+  background-color: var(--primary-blue);
+}
+/* Encabezado minimalista para la sección de contacto */
+.contact-header-minimal {
+  text-align: center;         /* Centra todo el contenido */
+  max-width: 600px;           /* Ancho máximo para no expandir demasiado */
+  margin: 2rem auto 3rem;     /* Espacios arriba y abajo */
+}
+
+.contact-header-minimal i {
+  font-size: 2.5rem;          /* Tamaño del ícono */
+  color: var(--secondary-blue);
+  margin-bottom: 1rem;
+}
+
+.contact-header-minimal h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;          /* Ajustá según tu preferencia */
+  color: var(--primary-blue);
+  margin-bottom: 0.75rem;
+}
+
+.contact-header-minimal p {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  color: var(--gray-700);
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 500px;           /* Limita el ancho del párrafo para mejor lectura */
+}
+/* TRÁMITES Y RESERVAS: Mejor legibilidad, layout y botón centrado */
+.section.reservations {
+  /* Ajustá el color de fondo a tu gusto: var(--light), var(--white) o var(--gray-100) */
+  background-color: var(--light);
+  padding: 3rem 0;
+}
+
+.reservations-container {
+  display: flex;
+  flex-wrap: wrap;     /* Permite que las columnas salten de línea en pantallas chicas */
+  gap: 2rem;           /* Separación entre columnas */
+  justify-content: space-between;
   align-items: flex-start;
 }
 
-.footer-contact-icon {
-  margin-right: 0.75rem;
-  color: var(--secondary-blue);
+/* Columnas izquierda y derecha con ancho mínimo */
+.reservations-info,
+.reservations-process {
+  flex: 1 1 400px;
+  min-width: 300px;
 }
 
-.copyright {
-  text-align: center;
-  padding-top: 3rem;
-  color: var(--gray-500);
-  font-size: 0.875rem;
+/* Títulos de cada bloque */
+.reservations-info h3,
+.reservations-process h3 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
 }
 
-/* Responsive Styles */
-@media (max-width: 992px) {
-  .institutional-content,
-  .reservations-container,
-  .contact-container {
-    flex-direction: column;
-  }
-  
-  .events-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .gallery-btn {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .gallery-prev {
-    left: -20px;
-  }
-  
-  .gallery-next {
-    right: -20px;
-  }
+/* Texto más legible y con buen interlineado */
+.reservations-info p,
+.reservations-info li,
+.reservations-process p,
+.reservations-process li {
+  color: var(--gray-700);
+  line-height: 1.5;
+  margin-bottom: 1rem;
 }
 
-@media (max-width: 768px) {
-  :root {
-    --header-height: 70px;
-  }
-  
-  .section {
-    padding: 3rem 0;
-  }
-  
-  .banner {
-    height: 400px;
-  }
-  
-  .banner-title {
-    font-size: 2rem;
-  }
-  
-  .events-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .gallery-slide {
-    height: 350px;
-  }
-  
-  .hamburger {
-    display: flex;
-  }
-  
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    flex-direction: column;
-    width: 80%;
-    max-width: 300px;
-    height: 100vh;
-    background-color: var(--white);
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    padding: 5rem 2rem 2rem;
-    transition: right var(--transition-speed) ease;
-    z-index: 1000;
-  }
-  
-  .nav-menu.active {
-    right: 0;
-  }
-  
-  .nav-menu li {
-    margin: 1rem 0;
-  }
-  
-  .hamburger.active span:first-child {
-    transform: translateY(8px) rotate(45deg);
-  }
-  
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .hamburger.active span:last-child {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-  
-  .contact-btn {
-    margin: 1rem 0;
-  }
+/* Ajuste de la lista de items en .reservations-info (si tenés un <ul>) */
+.reservations-info ul {
+  list-style: disc inside;    /* Muestra viñetas en el interior */
+  margin-left: 1rem;          /* Espacio para que no quede pegado al borde */
 }
 
-@media (max-width: 576px) {
-  .banner {
-    height: 350px;
-  }
-  
-  .banner-logo {
-    width: 80px;
-    height: 80px;
-    font-size: 2.5rem;
-  }
-  
-  .banner-title {
-    font-size: 1.8rem;
-  }
-  
-  .banner-btn {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
-  }
-  
-  .gallery-btn {
-    display: none;
-  }
-  
-  .footer-container {
-    flex-direction: column;
-  }
-  
-  .footer-column {
-    width: 100%;
-  }
+/* Estilos para la lista de pasos en el proceso */
+.process-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: step-counter; /* Para numerar pasos automáticamente */
+}
+
+.process-step {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 2.5rem;        /* Espacio para el circulito numérico */
+}
+
+/* Circulito con número automático */
+.process-step::before {
+  counter-increment: step-counter;
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.8rem;
+  height: 1.8rem;
+  background-color: var(--secondary-blue);
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Centrar solo el botón (sin centrar todo el texto) */
+.reservations-process .btn {
+  display: inline-block;
+  margin: 2rem auto 0; /* Separa el botón del texto y lo centra */
+}
+
+/* Ajustar tamaño y estilo del botón principal */
+.reservations-process .btn.btn-primary {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+/* 1) Aumentar tamaño de letra en la sección de reservas */
+.reservations-info p,
+.reservations-info li,
+.reservations-process p,
+.reservations-process li {
+  font-size: 1.1rem; /* Ajustá a 1.1rem, 1.2rem, etc. según prefieras */
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: var(--gray-700);
+}
+
+/* 2) Centrar el botón en la columna de "Proceso de Reserva" */
+.reservations-process .btn {
+  display: block;          /* Para que el margin auto funcione horizontalmente */
+  margin: 2rem auto 0;     /* Separa el botón del texto y lo centra */
+  text-align: center;      /* Centra el contenido del botón (iconos/texto si los hubiera) */
+}
+
+/* Override footer text color (except .footer-title) to an off-white shade */
+.footer-links a,
+.footer-contact li,
+.footer-description,
+.footer .copyright {
+  color: #f5f5f5;
 }
