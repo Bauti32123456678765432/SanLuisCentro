@@ -58,25 +58,26 @@ function initializeGallery() {
     function goToSlide(index) {
         if (index < 0) index = slides.length - 1;
         if (index >= slides.length) index = 0;
-        
+
         // Hide all slides
         slides.forEach(slide => {
+            slide.style.display = 'none'; // Ensure each slide is hidden
             slide.style.transform = 'translateX(100%)';
             slide.style.opacity = '0';
         });
-        
+
         // Show selected slide
+        slides[index].style.display = 'flex'; // Make sure it is visible
         slides[index].style.transform = 'translateX(0)';
         slides[index].style.opacity = '1';
-        
+
         // Update dots
         dots.forEach(dot => dot.classList.remove('active'));
         dots[index].classList.add('active');
-        
+
         // Update current slide
         currentSlide = index;
     }
-    
     // Previous button click
     if (prevBtn) {
         prevBtn.addEventListener('click', () => {
